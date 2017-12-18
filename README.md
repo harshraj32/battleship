@@ -1,2 +1,76 @@
 # battleship
 Game.
+from random import randint
+
+
+
+board = []
+for x in range(25):
+    board.append(["O"] * 25)
+
+
+def print_board():
+    for y in range(25):
+       print (" ".join(board[y]))
+
+
+
+def ship_row(ship_row):
+  return randint(0,25)
+def ship_col(ship_row):
+  return randint(0,25)
+
+
+ship_row(ship_row)
+ship_col(ship_col)
+
+
+
+for Turn in range(11):
+    print ("Turn", Turn + 1)
+    print_board()
+    
+    guess_row = int(input("Guess the row : "))
+    guess_col = int(input("Guess the col : "))
+    
+    if (guess_row == ship_row and guess_col == ship_col):
+        print ("Congralulations!, you have destroyed enemy ship")
+        
+    if (Turn >= 2):
+        if (guess_row in range(12) and guess_col in range(12)):
+          if (ship_row not in range(12) and ship_col not in range(12)):
+              for x in range(0,12):
+                  for y in range(0,12):
+                    board[x][y] = "$"
+        if (guess_row in range(12,25) and guess_col in range(12)):
+          if (ship_row not in range(12,25) and ship_col not in range(12)):
+              for x in range(12,25):
+              
+              
+                  for y in range(0,12):
+                    board[x][y] = "$"  
+        
+        if (guess_row in range(12) and guess_col in range(12,25)):
+          if (ship_row not in range(12) and ship_col not in range(12,25)):
+              for x in range(0,12):
+                  for y in range(12,25):
+                    board[x][y] = "$"
+        if (guess_row in range(12,25) and guess_col in range(12,25)):
+          if (ship_row not in range(12,25) and ship_col not in range(12,25)):
+              for x in range(12,25):
+                  for y in range(12,25):
+                    board[x][y] = "$"              
+
+    
+    
+    elif(guess_row not in range(0,25) or guess_col not in range(0,25)):
+        print ("your number is out of range")
+      
+    elif(board[guess_row][guess_col] == "X"):
+        print ("Oops ,you have already guessed this one")
+    else:
+          print ("you missed my battleship.")
+          board[guess_row][guess_col] = "X"
+    if(Turn == 10):
+      print ("Game over")  
+      

@@ -15,14 +15,11 @@ def print_board():
 
 
 
-def ship_row(ship_row):
-  return randint(0,25)
-def ship_col(ship_row):
-  return randint(0,25)
+ 
 
 
-ship_row(ship_row)
-ship_col(ship_col)
+ship_row = randint(0,25)
+ship_col =randint(0,25)
 
 
 
